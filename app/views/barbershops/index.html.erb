@@ -1,0 +1,6 @@
+<h1>Barbershops</h1>
+<% @barbershops.each do |barbershop|  %>
+  <p> Shop Name: <%= barbershop.name %></p>
+  <p> Shop Rank: <%= barbershop.rank %></p>
+  <p> Is the shop open?: <%= barbershop.open %></p>
+<% end %>
