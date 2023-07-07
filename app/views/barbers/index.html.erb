@@ -1,0 +1,7 @@
+<h1>Barbers</h1>
+
+<% @barbers.each do |barber| %><br>
+  <p>Barber name: <%= barber.name %></p>
+  <p>Number of appointments booked today: <%= barber.clients %></p>
+  <p>Does this Barber have any availability today? <%= barber.available %></p>
+<% end %>
