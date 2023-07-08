@@ -4,6 +4,6 @@ class BarbersController < ApplicationController
   end
 
   def show 
-    @barber = Barber.all
+    @barber = Barber.find(params[:id])
   end
 end
