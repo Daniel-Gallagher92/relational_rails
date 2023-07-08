@@ -13,5 +13,8 @@ RSpec.describe 'the barbershops show page' do
 
     visit "/barbershops/:id"
     
+    expect(page).to have_content(barbershop.name)
+    expect(page).to have_content(barbershop.rank)
+    expect(page).to have_content(barbershop.open)
   end
 end

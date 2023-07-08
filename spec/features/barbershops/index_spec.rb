@@ -13,6 +13,6 @@ RSpec.describe 'the barbershops index page' do
 
     visit "/barbershops"
 
-    
+    expect(page).to have_content(barbershop.name)
   end
 end
