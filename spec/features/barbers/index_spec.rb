@@ -9,16 +9,13 @@ require 'rails_helper'
 
 RSpec.describe 'Barber index page' do 
   it 'displays each barber with attributes' do 
-    barber_1 = Barber.create(name: "Sasha", barbershop_id: 1, clients: 14, available: false)
-    barber_2 = Barber.create(name: "Kylee", barbershop_id: 1, clients: 14, available: false)
-    barber_3 = Barber.create(name: "Holden", barbershop_id: 1, clients: 5, available: true)
+    barbershop = Barbershop.create!(name: "Blank", rank: 1, open: true)
+
+    barber_1 = Barber.create!(name: "Sasha", clients: 14, available: false)
+    barber_2 = Barber.create!(name: "Kylee", clients: 14, available: false)
+    barber_3 = Barber.create!(name: "Holden", clients: 5, available: true)
     
     visit "/barbers" 
-
-    # expect(page).to have_content(barber_1.name)
-    # expect(page).to have_content(barber_2.barbershop_id)
-    # expect(page).to have_content(barber_3.clients)
-    # expect(page).to have_content(barber_3.available)
 
     Barber.all.each do |barber|
       expect(page).to have_content(barber.name)
@@ -27,6 +24,21 @@ RSpec.describe 'Barber index page' do
       expect(page).to have_content(barber.available)
     end
   end
+
+#   User Story 8, Child Index Link
+
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+
+  it 'displays a link to the barber index page' do
+    barbershop = Barbershop.create!(name: "Blank", rank: 1, open: true)
+
+    visit "/barbershops"
+
+    expect(page).to have_link("Barbers")
+  end
+
 end
 
 

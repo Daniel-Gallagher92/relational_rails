@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/barbershops', to: 'barbershops#index'
   get '/barbershops/:id', to: 'barbershops#show'
   get '/barbers', to: 'barbers#index'
-  get '/barber/:id', to: 'barbers#show'
+  get '/barbers/:id', to: 'barbers#show'
+  get '/barbershops/:id/barbers', to: 'barbershops#barbers'
 end

@@ -1,5 +1,7 @@
-<% @barbershops.each do |barbershop|  %>
-  <p> Shop Name: <%= barbershop.name %></p>
-  <p> Shop Rank: <%= barbershop.rank %></p>
-  <p> Is the shop open?: <%= barbershop.open%></p> 
-<% end %>
+
+  <br>
+  <p> Shop Name: <%= @barbershops.name %></p>
+  <p> Shop Rank: <%= @barbershops.rank %></p>
+  <p> Is the shop open?: <%= @barbershops.open%></p> 
+  <p> Number of Barbers: <%= @barbershops.barbers.count%></p> 
+  <br>

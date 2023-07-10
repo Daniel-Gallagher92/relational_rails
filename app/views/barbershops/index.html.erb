@@ -1,4 +1,7 @@
-<h1>Barbershops</h1>
+
+<h1>Barbershops</h1><br>
 <% @barbershops.each do |barbershop|  %>
   <p> Shop Name: <%= barbershop.name %></p>
+  <p>Created at: <%= barbershop.created_at %></p>
+  <br>
 <% end %>

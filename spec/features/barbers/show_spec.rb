@@ -9,20 +9,32 @@ require 'rails_helper'
 describe 'Barber show page' do 
   it 'can display barber by id as well as that barbers attributes' do 
   barbershop = Barbershop.create!(name: "Blank", rank: 1, open: true)
-  # require 'pry'; binding.pry
+  
   barber = barbershop.barbers.create!(name: "Sasha", clients: 14, available: false)
 
-  visit "/barber/#{barber.id}"
+  visit "/barbers/#{barber.id}"
+
     # save_and_open_page
+
   expect(page).to have_content(barber.name)
   expect(page).to have_content(barber.clients)
   expect(page).to have_content(barber.available)
   end
-  # Barber.all.each do |barber|
-  #   expect(page).to have_content(barber.name)
-  #   expect(page).to have_content(barber.barbershop_id)
-  #   expect(page).to have_content(barber.clients)
-  #   expect(page).to have_content(barber.available)
-  # end
-  # end
+
+#   User Story 8, Child Index Link
+
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+
+it 'can display a link to the barbers index page' do 
+
+  barbershop = Barbershop.create!(name: "Blank", rank: 1, open: true)
+  barber = barbershop.barbers.create!(name: "Sasha", clients: 14, available: false)
+
+  visit "/barbers/#{barber.id}" 
+  # save_and_open_page 
+
+  expect(page).to have_link("Barbers")
+  end
 end
