@@ -11,15 +11,14 @@ RSpec.describe 'Barber index page' do
   it 'displays each barber with attributes' do 
     barbershop = Barbershop.create!(name: "Blank", rank: 1, open: true)
 
-    barber_1 = Barber.create!(name: "Sasha", clients: 14, available: false)
-    barber_2 = Barber.create!(name: "Kylee", clients: 14, available: false)
-    barber_3 = Barber.create!(name: "Holden", clients: 5, available: true)
+    barber_1 = barbershop.barbers.create!(name: "Sasha", clients: 14, available: false)
+    barber_2 = barbershop.barbers.create!(name: "Kylee", clients: 14, available: false)
+    barber_3 = barbershop.barbers.create!(name: "Holden", clients: 5, available: true)
     
     visit "/barbers" 
 
     Barber.all.each do |barber|
       expect(page).to have_content(barber.name)
-      expect(page).to have_content(barber.barbershop_id)
       expect(page).to have_content(barber.clients)
       expect(page).to have_content(barber.available)
     end

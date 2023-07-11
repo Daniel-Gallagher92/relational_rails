@@ -1,0 +1,5 @@
+<%= form_with url: "/barbershops/#{@barbershop.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit value="Update Barbershop" %> 
+<% end %>

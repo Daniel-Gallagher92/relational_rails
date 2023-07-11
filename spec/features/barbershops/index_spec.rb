@@ -20,7 +20,9 @@ RSpec.describe 'the barbershops index page' do
     @barber_6 = @barbershop_2.barbers.create!(name: "Ali", clients: 14, available: false)
 
   end
+  
   it 'displays the name of each Barbershop record in the system' do 
+    @barbershop = Barbershop.create!(name: "Blank Cherry Creek")
 
     visit "/barbershops"
 
@@ -90,4 +92,26 @@ RSpec.describe 'the barbershops index page' do
     expect(page).to have_link("Barbers")
   end
   
+# User Story 13, Parent Child Creation 
+
+# As a visitor
+# When I visit a Parent Children Index page
+# Then I see a link to add a new adoptable child for that parent "Create Child"
+
+# When I click the link
+# I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new barber for hire
+# When I fill in the form with the child's attributes:
+
+# And I click the button "Create Child"
+# Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+# a new child object/row is created for that parent,
+# and I am redirected to the Parent Childs Index page where I can see the new child listed
+
+  it 'displays a link to create a new barber' do 
+    visit "/barbershops/#{@barbershop_2.id}/barbers"
+
+    click_link("Hire New Barber")
+
+    expect(current_path).to eq("/barbershops/#{Barbershop.last.id}/barbers/new")
+  end
 end

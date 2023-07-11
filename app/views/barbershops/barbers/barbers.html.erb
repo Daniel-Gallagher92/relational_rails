@@ -1,7 +1,3 @@
-<%= link_to "Barbers", "/barbers" %><br>
-<%= link_to "Barbershops", "/barbershops" %> <br>
-<br>
-
 <h1>Barbers</h1>
 
 <% @barbers.each do |barber| %><br>
@@ -9,3 +5,5 @@
   <p>Number of appointments booked today: <%= barber.clients %></p>
   <p>Does this Barber have any availability today? <%= barber.available %></p>
 <% end %>
+
+<%= link_to "Hire New Barber", "/barbershops/#{@barbershop.id}/barbers/new" %>
