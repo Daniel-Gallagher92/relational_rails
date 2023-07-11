@@ -1,0 +1,5 @@
+<%= form_with url: '/barbershops', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit value="Create Barbershop" %> 
+<% end %>

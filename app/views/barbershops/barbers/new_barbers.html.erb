@@ -1,0 +1,6 @@
+
+<%= form_with url: "/barbershops/#{@barbershop.id}/barbers/new", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.submit "Hire New Barber" %>
+<% end %>

@@ -5,3 +5,5 @@
   <p> Is the shop open?: <%= @barbershops.open%></p> 
   <p> Number of Barbers: <%= @barbershops.barbers.count%></p> 
   <br>
+  <br>
+  <%= link_to "Update Barbershop", "/barbershops/#{@barbershops.id}/edit" %>
