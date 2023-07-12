@@ -8,12 +8,6 @@ class BarbershopsController < ApplicationController
     @barbershops = Barbershop.find(params[:id])
   end
 
-  def barbers 
-    @barbershop = Barbershop.find(params[:id])
-    
-    @barbers = @barbershop.barbers
-  end
-
   def new 
   end
 
