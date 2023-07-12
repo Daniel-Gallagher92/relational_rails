@@ -4,3 +4,5 @@
 <p> Number of appointments booked today: <%= @barber.clients %></p>
 <p> Does this Barber have any availability today? <%= @barber.available %></p>
 
+<%= link_to "Update Barber", "/barbers/#{@barber.id}/edit" %>
+
